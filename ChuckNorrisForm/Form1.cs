@@ -24,8 +24,10 @@ namespace ChuckNorrisForm
             MessageBox.Show(joke.JokeText);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
+            IEnumerable<string> categories = await ChuckNorrisClient.GetCategories();
+            jokeCatCmbBox.DataSource = categories;
 
         }
     }
